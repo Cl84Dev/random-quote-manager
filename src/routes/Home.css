@@ -1,0 +1,13 @@
+.home {
+    padding-top: 140px
+}
+
+.link {
+    text-decoration: none;
+}
+
+@media (max-width: 373px) {
+    .home {
+        padding-top: 190px
+    }
+}

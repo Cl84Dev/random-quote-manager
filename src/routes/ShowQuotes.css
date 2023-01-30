@@ -1,0 +1,13 @@
+.quotes {
+    padding-top: 140px;
+}
+
+.quote {
+    max-width: 500px;
+}
+
+@media (max-width: 373px) {
+    .quotes {
+        padding-top: 190px;
+    }
+}

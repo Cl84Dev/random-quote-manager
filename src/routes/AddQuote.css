@@ -1,0 +1,15 @@
+textarea {
+    min-width: 300px;
+    height: 200px;
+}
+
+.add-quote {
+    max-width: 500px;
+    padding-top: 140px
+}
+
+@media (max-width: 373px) {
+    .add-quote {
+        padding-top: 190px;
+    }
+}
