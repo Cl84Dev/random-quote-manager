@@ -4,30 +4,45 @@ import App from './App'
 import Home from "./routes/Home.jsx";
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createHashRouter, RouterProvider} from "react-router-dom";
 import ShowQuotes from "./routes/ShowQuotes.jsx";
 import AddQuote from "./routes/AddQuote.jsx";
 import Quote from "./routes/Quote.jsx";
+import Quotes from "./routes/Quotes.jsx";
+import ByQuote from "./routes/ByQuote.jsx";
+import ByAuthor from "./routes/ByAuthor.jsx";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
-        path: '/random-quote-manager/',
+        path: '/',
         element: <App/>,
         children: [
             {
-                path: '/random-quote-manager/',
+                path: '/',
                 element: <Home/>
             },
             {
-                path: '/random-quote-manager/quotes',
+                path: '/quotes',
+                element: <Quotes/>
+            },
+            {
+                path: '/all-quotes',
                 element: <ShowQuotes/>
             },
             {
-                path: '/random-quote-manager/add-quote',
+                path: '/by-quote',
+                element: <ByQuote/>
+            },
+            {
+                path: '/by-author',
+                element: <ByAuthor/>
+            },
+            {
+                path: '/add-quote',
                 element: <AddQuote/>
             },
             {
-                path: '/random-quote-manager/quote/:id',
+                path: '/quote/:id',
                 element: <Quote/>
             }
         ]

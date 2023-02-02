@@ -33,7 +33,7 @@ const Quote = () => {
             .then((res) => console.log(res));
 
         setToggle(!toggle);
-        return navigate("/random-quote-manager/quotes");
+        return navigate("/quotes");
     };
 
     const deleteQuote = () => {
@@ -42,7 +42,7 @@ const Quote = () => {
             .then((res) => console.log(res))
             .catch((err) => console.log(err.response.data));
 
-        return navigate("/random-quote-manager/quotes");
+        return navigate("/quotes");
     };
     return (
         <div className="quote d-flex flex-column align-items-center px-3 mx-auto">

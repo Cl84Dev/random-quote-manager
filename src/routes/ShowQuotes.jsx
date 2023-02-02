@@ -14,13 +14,13 @@ const ShowQuotes = () => {
 
     return (
         <div className="quotes d-flex flex-column align-items-center">
-            <h2 className="text-center">Quotes</h2>
+            <h2 className="text-center my-3">Quotes</h2>
             {quotes.map(quote => (
                 <div key={quote._id}
                      className="quote border rounded shadow-lg m-3 p-3 d-flex flex-column align-items-center text-center">
                     <p>{quote.quotation}</p>
                     <p>{quote.author}</p>
-                    <Link className="btn btn-primary" to={`/random-quote-manager/quote/${quote._id}`}>
+                    <Link className="btn btn-primary" to={`/quote/${quote._id}`}>
                         See Quote Actions
                     </Link>
                 </div>

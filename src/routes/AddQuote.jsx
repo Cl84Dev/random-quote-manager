@@ -24,7 +24,7 @@ const AddQuote = () => {
             .catch(err => console.log(err))
             .then(res => console.log(res))
 
-        return navigate("/random-quote-manager/quotes")
+        return navigate("/quotes")
     }
 
     return (
@@ -35,7 +35,7 @@ const AddQuote = () => {
                                                                          onChange={e => setQuotation(e.target.value)}></textarea></label>
                 <label><span className="fw-bold">Author:</span> <input className="form-control"
                                                                        onChange={e => setAuthor(e.target.value)}/></label>
-                <button className="btn btn-primary my-3" onClick={sendQuote}>Add</button>
+                <button className="btn btn-primary my-3" onClick={sendQuote}>Add Quote</button>
             </div>
         </div>
     )
