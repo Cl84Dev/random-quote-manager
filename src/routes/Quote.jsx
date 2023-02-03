@@ -1,5 +1,7 @@
 import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button';
 import axios from "axios";
 import './Quote.css'
 
@@ -13,6 +15,21 @@ const Quote = () => {
     const [quotation, setQuotation] = useState('')
     const [author, setAuthor] = useState('')
     const [toggle, setToggle] = useState(false)
+    const [show, setShow] = useState(false)
+    const [showEdit, setShowEdit] = useState(false)
+
+
+    const handleClose = () => {
+        setShow(false)
+        return navigate("/quotes")
+    };
+    const handleShow = () => setShow(true)
+
+    const handleCloseEdit = () => {
+        setShowEdit(false)
+        return navigate("/quotes")
+    };
+    const handleShowEdit = () => setShowEdit(true)
 
     useEffect(() => {
         axios
@@ -32,8 +49,7 @@ const Quote = () => {
             .catch((err) => console.log(err.response.data))
             .then((res) => console.log(res));
 
-        setToggle(!toggle);
-        return navigate("/quotes");
+        handleShowEdit()
     };
 
     const deleteQuote = () => {
@@ -42,7 +58,7 @@ const Quote = () => {
             .then((res) => console.log(res))
             .catch((err) => console.log(err.response.data));
 
-        return navigate("/quotes");
+        handleShow()
     };
     return (
         <div className="quote d-flex flex-column align-items-center px-3 mx-auto">
@@ -82,8 +98,30 @@ const Quote = () => {
                                 Cancel Edit
                             </button>
                         </div>
+                        <Modal centered show={showEdit} onHide={handleCloseEdit}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Edit Quote</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>Quote edited successfully!</Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleCloseEdit}>
+                                    Close
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
                     </div>
                 )}
+                <Modal centered show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Delete Quote</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Quote deleted successfully!</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         </div>
     )

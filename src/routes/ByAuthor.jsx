@@ -2,11 +2,19 @@ import "./ByAuthor.css"
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 const ByAuthor = () => {
     const [search, setSearch] = useState('')
     const [quotes, setQuotes] = useState([])
     const [toggle, setToggle] = useState(false)
+    const [show, setShow] = useState(false)
+
+    const handleClose = () => {
+        setShow(false)
+    };
+    const handleShow = () => setShow(true)
 
     useEffect(() => {
         if (!quotes.length && search) {
@@ -18,7 +26,7 @@ const ByAuthor = () => {
 
     const handleSearch = () => {
         if (!search) {
-            alert('You must to enter an author to search!')
+            handleShow()
             return
         }
 
@@ -37,6 +45,9 @@ const ByAuthor = () => {
                                                                             onChange={(e) => setSearch(e.target.value)}/></label>
                 <button className="btn btn-primary my-3" onClick={handleSearch}>Search</button>
 
+                {quotes.length > 0 && <p>Showing <span
+                    className="fw-bold">{quotes.length}</span> {quotes.length === 1 ? 'quote' : 'quotes'}:</p>}
+
                 {toggle && <div>No quote matches to your search.</div>}
 
                 {quotes && quotes.map(quote => (
@@ -51,6 +62,17 @@ const ByAuthor = () => {
                 ))}
 
             </div>
+            <Modal centered show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Search By Author</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>You must to enter an author word to search!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     )
 }

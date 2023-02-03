@@ -15,6 +15,8 @@ const ShowQuotes = () => {
     return (
         <div className="quotes d-flex flex-column align-items-center">
             <h2 className="text-center my-3">Quotes</h2>
+            {quotes.length > 0 && <p>Showing <span
+                className="fw-bold">{quotes.length}</span> {quotes.length === 1 ? 'quote' : 'quotes'}:</p>}
             {quotes.map(quote => (
                 <div key={quote._id}
                      className="quote border rounded shadow-lg m-3 p-3 d-flex flex-column align-items-center text-center">
