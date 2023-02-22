@@ -2,15 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import Home from "./routes/Home.jsx";
-import './index.css'
+import './main.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {createHashRouter, RouterProvider} from "react-router-dom";
 import ShowQuotes from "./routes/ShowQuotes.jsx";
 import AddQuote from "./routes/AddQuote.jsx";
-import Quote from "./routes/Quote.jsx";
+import QuoteActions from "./routes/QuoteActions.jsx";
 import Quotes from "./routes/Quotes.jsx";
-import ByQuote from "./routes/ByQuote.jsx";
-import ByAuthor from "./routes/ByAuthor.jsx";
+import SearchByQuote from "./routes/SearchByQuote.jsx";
+import SearchByAuthor from "./routes/SearchByAuthor.jsx";
 
 const router = createHashRouter([
     {
@@ -31,11 +31,11 @@ const router = createHashRouter([
             },
             {
                 path: '/by-quote',
-                element: <ByQuote/>
+                element: <SearchByQuote/>
             },
             {
                 path: '/by-author',
-                element: <ByAuthor/>
+                element: <SearchByAuthor/>
             },
             {
                 path: '/add-quote',
@@ -43,7 +43,7 @@ const router = createHashRouter([
             },
             {
                 path: '/quote/:id',
-                element: <Quote/>
+                element: <QuoteActions/>
             }
         ]
     }

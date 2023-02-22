@@ -1,9 +1,5 @@
 .quotes {
-    padding-top: 120px
-}
-
-@media (max-width: 373px) {
-    .quotes {
-        padding-top: 170px;
-    }
+    max-width: 500px;
+    background-color: white;
+    opacity: 0.8
 }
