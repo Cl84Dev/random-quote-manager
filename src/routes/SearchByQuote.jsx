@@ -1,4 +1,4 @@
-import "./ByQuote.css";
+import "./SearchByQuote.css";
 import { useState } from "react";
 import axios from "axios";
 import SingleQuote from "../components/SingleQuote.jsx";

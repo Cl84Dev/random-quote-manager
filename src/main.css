@@ -1,5 +1,5 @@
 body {
-    background: url(../public/pexels-james-wheeler-414612.jpg) center center no-repeat fixed;
-    background-size: cover;
+  background: url(../public/pexels-james-wheeler-414612.jpg) center center
+    no-repeat fixed;
+  background-size: cover;
 }
-

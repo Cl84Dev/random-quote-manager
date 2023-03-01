@@ -1,11 +1,13 @@
 textarea {
-    min-width: 300px;
-    height: 200px
+  min-width: 300px;
+  height: 200px;
 }
 
-
 .add-quote {
-    max-width: 500px;
-    background-color: white;
-    opacity: 0.8
+  max-width: 500px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.add-quote-fields {
+  background-color: white;
 }

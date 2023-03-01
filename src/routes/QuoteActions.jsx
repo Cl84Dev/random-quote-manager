@@ -45,12 +45,15 @@ const QuoteActions = () => {
   return (
     <article className="quote d-flex flex-column align-items-center p-3 m-3 rounded-2">
       <h2 className="my-3">Quote</h2>
-      <p className="text-center">
-        <span className="fw-bold">Quote:</span> {quotes.quote}
-      </p>
-      <p className="text-center">
-        <span className="fw-bold">Author:</span> {quotes.author}
-      </p>
+      <div className="quote-author p-3 m-3 rounded-2">
+        <p className="text-center">
+          <span className="fw-bold">Quote:</span> {quotes.quote}
+        </p>
+        <p className="text-center">
+          <span className="fw-bold">Author:</span> {quotes.author}
+        </p>
+      </div>
+
       <div className="buttons d-flex justify-content-evenly">
         {!toggleButtons && (
           <button
@@ -66,7 +69,7 @@ const QuoteActions = () => {
           </button>
         )}
         {toggleButtons && (
-          <div className="d-flex flex-column border rounded shadow-lg p-3 align-items-center">
+          <div className="edit-quote d-flex flex-column border rounded shadow-lg p-3 align-items-center">
             <label>
               <span className="fw-bold">Quote:</span>{" "}
               <textarea
